@@ -1,0 +1,168 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+#root {
+  --bg-purp: rgba(115, 63, 200, 100%);
+  --bg-dark-gray: rgba(25, 32, 45, 100%);
+  --light-gray: rgba(72, 85, 106, 100%);
+
+  --fntclr-purp: rgba(167, 117, 241, 100%);
+  --fntclr-white: rgba(255, 255, 255, 100%);
+}
+
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  font-family: "Barlow Semi Condensed", sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(236, 242, 248, 100%);
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+::selection {
+  color: rgba(191, 155, 48, 100%);
+}
+/* Main CSS */
+main {
+  max-width: 1440px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 164px;
+  h1 {
+    visibility: hidden;
+  }
+}
+.testimonials-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas:
+    "dan dan jon kira"
+    "jean pat pat kira";
+  grid-column-gap: 30px;
+  grid-row-gap: 1.5rem;
+
+  .testi-card:nth-child(1) {
+    grid-area: dan;
+    background-color: var(--bg-purp);
+    color: var(--fntclr-white);
+    background-image: url(./assets/images/bg-pattern-quotation.svg);
+    background-repeat: no-repeat;
+    background-position: top right 80px;
+    animation: slideRight 0.7s linear;
+  }
+  .testi-card:nth-child(2) {
+    grid-area: jon;
+    background-color: var(--light-gray);
+    color: var(--fntclr-white);
+    animation: slideBottom 0.7s linear;
+  }
+  .testi-card:nth-child(3) {
+    grid-area: jean;
+    background-color: var(--fntclr-white);
+    color: var(--light-gray);
+    animation: slideRight 0.7s linear;
+  }
+  .testi-card:nth-child(4) {
+    grid-area: pat;
+    background-color: var(--bg-dark-gray);
+    color: var(--fntclr-white);
+    animation: slideTop 0.7s linear;
+  }
+  .testi-card:nth-child(5) {
+    grid-area: kira;
+    background-color: var(--fntclr-white);
+    color: var(--light-gray);
+    animation: slideLeft 0.7s linear;
+  }
+}
+
+@media (max-width: 64rem) {
+  main {
+    padding-inline: 1rem;
+  }
+}
+@media (max-width: 1023px) {
+  main {
+    padding: 71px 2rem;
+    .testimonials-container {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      grid-row-gap: 2rem;
+      grid-column-gap: 0;
+      grid-template-areas:
+        "dan"
+        "jon"
+        "jean"
+        "pat"
+        "kira";
+
+      .testi-card:nth-child(1) {
+        background-position: top right 2rem;
+      }
+      .testi-card:nth-child(1),
+      .testi-card:nth-child(2),
+      .testi-card:nth-child(3),
+      .testi-card:nth-child(4),
+      .testi-card:nth-child(5) {
+        animation: slideTop 0.7s linear;
+      }
+    }
+  }
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(-10%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(10%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes slideBottom {
+  from {
+    opacity: 0;
+    transform: translateY(-10%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slideTop {
+  from {
+    opacity: 0;
+    transform: translateY(10%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

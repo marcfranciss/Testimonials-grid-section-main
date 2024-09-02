@@ -45,7 +45,6 @@ Users should be able to:
 
 - Website - [mackersdev.net](https://www.mackersdev.net)
 - Frontend Mentor - [@marcfranciss](https://www.frontendmentor.io/profile/marcfranciss)
-- Twitter - [@marcfranciss](https://www.twitter.com/marcfranciss)
 
 ## Acknowledgments
 
